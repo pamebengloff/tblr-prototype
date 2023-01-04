@@ -1,0 +1,16 @@
+
+.container{
+
+    color:white;
+
+    margin: 40px auto 0;
+    max-width: 990px;
+    /* padding: 0 8px;  */
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    gap:20px;
+
+}
+

@@ -1,0 +1,7 @@
+.container{
+    width: 64px;
+    height: 64px;
+    min-width: 64px; 
+    border-radius: 3px;
+    background-color: azure;
+}
