@@ -1,0 +1,55 @@
+.container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center; /*eje horizontal*/
+    height: 100vh;
+    position: absolute;
+    
+    z-index: 10000000;
+
+    overflow-y: scroll;  
+    
+    inset: 0;   /* inset sets all 4 values (top right bottom left) much like how we set padding, margin etc., */
+    background-color: rgba(0, 0, 0, .6);
+}
+
+.semiContainer{ /*para ubicar bien al userIcon*/
+    display: flex;
+    flex-direction: row;
+   
+    gap: 20px;
+
+border: 3px solid red;
+    margin-top: 70px;
+    margin-bottom: 70px;
+    height: fit-content;
+}
+
+.userIcon{
+ display: flex;
+  align-self: flex-start;
+}
+
+.modalBox {
+    padding: 10px 15px 10px 20px;
+    width: 540px;
+   
+    min-width: 540px;
+
+    background-color: white;
+    color: black;
+   
+    display: flex;
+    flex-direction: column;
+
+
+   
+  }
+
+.modalFooter{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+   
+}
