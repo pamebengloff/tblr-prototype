@@ -1,10 +1,11 @@
 import { useState } from "react";
 import modalStyles from '../styles/Modal.module.css';
 import Tags from "./Tags";
+import TextBox from "./TextBox"
 
 export default function Photo(){
 
-    const [hasContent, setHasContent] = useState(false);
+    const [hasContent, setHasContent] = useState(true);
 
     const [file, setFile] = useState([]);
 
@@ -29,8 +30,13 @@ return(<>
     </div>
 
     { hasContent 
-        ? <Tags/>
-        : null
+    ? 
+     <>
+     <br/>
+     <TextBox placeholder="Add a description" />
+     <Tags/>
+     </>
+    : null
     }
        
     </>)

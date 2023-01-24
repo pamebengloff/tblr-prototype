@@ -2,26 +2,26 @@ import { useRef, useState } from 'react';
 import useAutosizeTextArea from "../utils/useAutosizeTextArea"
 import modalStyles from '../styles/Modal.module.css';
 
-export default function TextBox(){
+export default function TextBox({placeholder}){
 
     const [value, setValue] = useState("");
-    const textAreaRef = useRef();
+    const textboxRef = useRef();
 
     const handleChange = (e) =>{
         setValue(e.target.value);
     } 
 
-    useAutosizeTextArea(textAreaRef.current, value);
+    useAutosizeTextArea(textboxRef.current, value);
 
 return(
 <>
     <textarea
-        className={modalStyles.inputTextPost}  
+        className={`${modalStyles.textboxDetails} ${modalStyles.textarea}`}
         required
-        placeholder='Here goes some text'
+        placeholder={placeholder}
         value={value}
         rows={1}
-        ref={textAreaRef}
+        ref={textboxRef}
         onChange= { handleChange }
     />
 
