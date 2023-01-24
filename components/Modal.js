@@ -34,14 +34,12 @@ return(
     {/* para acomodar el cuadro para postear*/}
     <div className={modalStyles.modalBox}>        
         <div className={modalStyles.modalTop}>
-            <button> yourblog </button>  {/*aqui debe ir el username de quien se loguee */}
-            <button> <AiFillTool/> </button>
+            <p> yourblog </p>  {/*aqui debe ir el username de quien se loguee */}
+            {/* <button> <AiFillTool/> </button> */}
         </div>
         {/* todo el contenido sobre Text, Photo, Quote, etc: */}
         {children} 
         {/* para acomodar los botones de close y publish */}
-        
-       
         <div className={modalStyles.modalFooter}>
             <button onClick={handleClose} >
                 Close

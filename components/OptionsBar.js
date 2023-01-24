@@ -39,7 +39,7 @@ return(
     optionsData.map((image) =>
    
     <li className={optionsBar.listImages} key={image.keyId}> 
-        <button id={image.iconTitle} onClick={handleClick}>    
+        <button className={optionsBar.button} id={image.iconTitle} onClick={handleClick}>    
         <Link className={optionsBar.link} /* href={image.href}*/ href="/" as={image.url}>
            <Image 
                src={image.src} 
