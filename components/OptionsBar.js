@@ -44,8 +44,9 @@ return(
            <Image 
                src={image.src} 
                alt={image.iconTitle} 
-               width={37}
-               height={35}
+               width={40}
+               height={37}
+               className={optionsBar.imageOp}
             /> 
             <p  className={optionsBar.p}>{image.iconTitle} </p>
         </Link>

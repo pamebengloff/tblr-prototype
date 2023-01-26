@@ -1,41 +1,96 @@
-import { useState } from "react";
+import { useSlotProps } from "@mui/base";
+import Image from "next/image"
+import { use, useEffect, useRef, useState } from "react";
 import modalStyles from '../styles/Modal.module.css';
 import Tags from "./Tags";
 import TextBox from "./TextBox"
 
+
 export default function Photo(){
 
-    const [hasContent, setHasContent] = useState(true);
+    const [hasContent, setHasContent] = useState(false); //activates the textbox and tags components
+   
+    const [images, setImages] = useState([]); //holds the images uploaded from the user
+    const [imagesURLs, setImagesURLs] = useState([]); //for the image previews
+    const [copy, setCopy] = useState([]);
 
-    const [file, setFile] = useState([]);
-
-    const handleChange = (e) => {
-        console.log(e.target.files);
-        setFile([...e.target.files]);
+    //al hacer clic en el button tambien se hara en el input
+    const hiddenFileInput = useRef(null);
+    const handleClick = (e) => {
+        hiddenFileInput.current.click();
     }
 
-return(<>
-    <div className={modalStyles.photoContainer} > 
-        <input 
-            type="file" 
-            multiple 
-            accept="image/*"
-              style={{display:'none'}}
-              className={modalStyles.inputPhoto}
-            
-        />
-         <button  onChange={handleChange} className={modalStyles.button}>Upload some photos <br/> :) </button>
-        
+    //sube las images
+    const handleChange = (e) => {
+       setImages([...e.target.files]);
+    
+       setHasContent(true);
+    }
 
+    //for the image preview
+    useEffect(() => {
+         if(images.length <1 ) return;
+      
+         let newImageUrls = [];      
+         //cada imagen se guarda en el array newImageUrls con un URL temporal
+         images.forEach(image => newImageUrls.push(URL.createObjectURL(image)));
+         //el array con urls se ira al estado
+        setImagesURLs(newImageUrls); //saves the previews
+        
+        setCopy(newImageUrls) //fill the array with new images
+        copyImages(newImageUrls); //pass the new images   
+      
+     },[hasContent, images]) //each time there are images uploaded and hasContent is true
+
+    //to accumulate all the images old and new
+    function copyImages(images){
+        setCopy([...copy, ...images]) //add to the already filled array the new images that arrived with each upload, copy will have every image 
+    }
+    
+    // console.log("fotos guardadas")
+    //console.log(copy)
+
+return(<>
+    <span className={modalStyles.image}> 
+    {
+    copy.map(imagesSrc => 
+  //  console.log(imagesSrc)
+         <Image 
+            src={imagesSrc.toString()}
+            key={imagesSrc} 
+             className={modalStyles.image}
+             width={100}
+             height={100} 
+             alt={imagesSrc.toString()}
+         />  
+      
+    )}
+     </span>  
+
+
+    <div className={modalStyles.photoContainer} > 
+    <button  onClick={handleClick} className={modalStyles.button}>
+        Upload some photos <br/> :) 
+    </button>
+    <input 
+        ref={hiddenFileInput}
+        type="file" 
+        multiple 
+        accept="image/*"
+        style={{display:'none'}}
+        onChange={handleChange} 
+    />
+   
     </div>
 
+    
     { hasContent 
     ? 
-     <>
-     <br/>
-     <TextBox placeholder="Add a description" />
-     <Tags/>
-     </>
+      <>
+      <br/>
+      <TextBox placeholder="Add a description" />
+      <Tags/>
+      </>
     : null
     }
        
