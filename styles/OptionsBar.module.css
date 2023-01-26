@@ -20,10 +20,15 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
+
+  transition: 500s linear;
 }
 
 .imageOp{
   padding-bottom: 5px;
+}
+.imageOp:hover{
+  translate:0 -2px ;
 }
 
 .link{

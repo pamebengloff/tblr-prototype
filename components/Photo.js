@@ -1,6 +1,5 @@
-import { useSlotProps } from "@mui/base";
 import Image from "next/image"
-import { use, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import modalStyles from '../styles/Modal.module.css';
 import Tags from "./Tags";
 import TextBox from "./TextBox"
@@ -31,12 +30,11 @@ export default function Photo(){
     useEffect(() => {
          if(images.length <1 ) return;
       
-         let newImageUrls = [];      
-         //cada imagen se guarda en el array newImageUrls con un URL temporal
-         images.forEach(image => newImageUrls.push(URL.createObjectURL(image)));
-         //el array con urls se ira al estado
+        let newImageUrls = [];      
+        //cada imagen se guarda en el array newImageUrls con un URL temporal
+        images.forEach(image => newImageUrls.push(URL.createObjectURL(image)));
+    
         setImagesURLs(newImageUrls); //saves the previews
-        
         setCopy(newImageUrls) //fill the array with new images
         copyImages(newImageUrls); //pass the new images   
       
@@ -52,9 +50,7 @@ export default function Photo(){
 
 return(<>
     <span className={modalStyles.image}> 
-    {
-    copy.map(imagesSrc => 
-  //  console.log(imagesSrc)
+    {copy.map(imagesSrc => 
          <Image 
             src={imagesSrc.toString()}
             key={imagesSrc} 
@@ -65,7 +61,7 @@ return(<>
          />  
       
     )}
-     </span>  
+    </span>  
 
 
     <div className={modalStyles.photoContainer} > 
@@ -90,9 +86,11 @@ return(<>
       <br/>
       <TextBox placeholder="Add a description" />
       <Tags/>
+      <hr className={modalStyles.borderModalFooter}/>
       </>
     : null
     }
        
+    
     </>)
 }

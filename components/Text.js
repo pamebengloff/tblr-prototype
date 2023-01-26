@@ -31,8 +31,10 @@ return(<>
   
     <TextBox placeholder="Here goes some text"/>
 
+
     { hasContent 
         ? <Tags/>
         : null
     }
+    <hr className={modalStyles.borderModalFooter}/>
 </>)}

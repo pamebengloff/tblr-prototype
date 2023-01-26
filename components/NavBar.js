@@ -4,7 +4,9 @@ import {useEffect, useState} from "react";
 
 import {MdHomeFilled} from "react-icons/md"
 import {FaPencilAlt} from "react-icons/fa"
-import LogoIcon from "./LogoIcon";
+import {IoPerson} from "react-icons/io5"
+
+import LogoIcon from "./LogoIcon"; //component
 
 export default function NavBar(){
 
@@ -36,17 +38,25 @@ return typeof isDesktop !== 'undefined' ?  (
         </div>
 
         <div className={navBar.rightContainer}>
+            
             <div className={navBar.logoIcon}> 
+              {/* home icon */}
               <Link href="../">
-                {/* home icon */}
                 <MdHomeFilled/> 
               </Link>
             </div>
+
             <div>button</div>
             <div>button</div>
             <div>button</div>
             <div>button</div>
-            <div>button</div>
+
+             {/* user icon */}
+            <div className={navBar.userIcon}> 
+                <IoPerson/> 
+                {/* sera un boton que abra un modal con cosas del user? */}
+            </div>
+            {/* new button */}
             <div>
                 <Link href="./new">
                   <FaPencilAlt/>

@@ -40,7 +40,10 @@ return(
         {/* todo el contenido sobre Text, Photo, Quote, etc: */}
         {children} 
         {/* para acomodar los botones de close y publish */}
+        
+    
         <div className={modalStyles.modalFooter}>
+        
             <button onClick={handleClose} >
                 Close
             </button>

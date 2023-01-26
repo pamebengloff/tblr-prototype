@@ -26,8 +26,9 @@ export default function OptionsBar(){
     }
 
     const handleClose = () => {
-        setIsOpen(false)
+        setIsOpen(false);
         document.body.style.overflow = 'unset';
+        router.push("/");
     }
 
 

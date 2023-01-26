@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
 import { useState } from "react";
 import Modal from "../../components/Modal";
-import TextComponent from "../../components/Text";
+import PhotoComponent from "../../components/Photo";
 
 export default function Text(){
 
@@ -17,7 +17,7 @@ export default function Text(){
 return(<>
    
     <Modal handleClose={handleClose} isOpen={isOpen}>
-        <TextComponent/>
+        <PhotoComponent/>
     </Modal>
 
     </>)
