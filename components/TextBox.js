@@ -24,6 +24,5 @@ return(
         ref={textboxRef}
         onChange= { handleChange }
     />
-
-<br/> <br/>
+<br/> <br/> 
 </>)}
