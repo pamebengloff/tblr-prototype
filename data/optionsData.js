@@ -3,7 +3,7 @@ const optionsData= [
         "keyId":1,
         "url": "/new/text",
         "href": "/?option=1",
-        "src":"/p-text.png",
+        "src":"./p-text.png",
         "iconTitle":"Text"
     },
     {
