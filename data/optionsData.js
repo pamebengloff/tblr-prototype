@@ -3,14 +3,14 @@ const optionsData= [
         "keyId":1,
         "url": "/new/text",
         "href": "/?option=1",
-        "src":"./p-text.png",
+        "src":"/p-text.png",
         "iconTitle":"Text"
     },
     {
         "keyId":2,
         "url": "/new/photo",
         "href": "/?option=2",
-        "src":"./p-photo.png",
+        "src":"/p-photo.png",
         "iconTitle":"Photo"
     },
     {
